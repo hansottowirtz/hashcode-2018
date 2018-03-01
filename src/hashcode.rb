@@ -16,7 +16,7 @@ class Hashcode
   def run
     parse
     arrange
-    write if @output_path
+    write
   end
 
   def parse

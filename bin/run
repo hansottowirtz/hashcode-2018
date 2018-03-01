@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
 require_relative '../src/hashcode'
+require 'pry'
 
-hashcode = Hashcode.new
+puts "#{ARGV[0]} #{ARGV[1]}"
+hashcode = Hashcode.new(ARGV[0], ARGV[1])
+hashcode.run

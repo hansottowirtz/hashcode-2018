@@ -1,3 +1,1 @@
-require 'pry'
-require 'fileutils'
-require 'set'
+gem 'minitest'

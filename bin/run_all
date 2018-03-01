@@ -4,9 +4,14 @@ TIMESTAMP=$(date +%s)
 FOLDER=output/$TIMESTAMP
 mkdir -p $FOLDER
 for filename in fixtures/*.in; do
-  ./bin/run filename $FOLDER/$(basename "$filename" .in).out &
+  ./bin/run $filename $FOLDER/$(basename "$filename" .in).out &
 done
-wait
+
+for job in `jobs -p`
+do
+  wait $job
+done
+
 echo 'Done running'
 git archive --format zip --output hashcode-2018-src.zip HEAD
 echo 'Done zipping'

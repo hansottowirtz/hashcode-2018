@@ -5,7 +5,7 @@ class ReadTest < Minitest::Test
   def setup
     file = File.expand_path('../../fixtures/lal.in', __FILE__)
     @hashcode = Hashcode.new(file)
-    @hashcode.read_input
+    @hashcode.parse
   end
 
   def test_read

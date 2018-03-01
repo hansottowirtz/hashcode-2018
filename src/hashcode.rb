@@ -14,12 +14,13 @@ class Hashcode
   end
 
   def run
-    read_input
-    write_output
+    parse
+    arrange
+    write if @output_path
   end
 
-  def read_input
-    puts 'read'
+  def parse
+    puts 'Parsing'
     File.foreach(@input_path).with_index do |line, i|
       case i
         when 0
@@ -30,7 +31,18 @@ class Hashcode
     end
   end
 
-  def write_output
-    puts 'write'
+  def arrange
+    puts 'Arranging'
+  end
+
+  def write
+    o = ""
+
+    if @output_path
+      FileUtils.mkdir_p(File.dirname(@output_path))
+      File.write(@output_path, o)
+    else
+      puts o
+    end
   end
 end

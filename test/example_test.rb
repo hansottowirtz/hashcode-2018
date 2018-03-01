@@ -1,15 +1,15 @@
 require "minitest/autorun"
 require_relative "../src/hashcode"
 
-class ReadTest < Minitest::Test
+class ExampleTest < Minitest::Test
   def setup
     file = File.expand_path('../../fixtures/a_example.in', __FILE__)
     @hashcode = Hashcode.new(file)
     @hashcode.parse
+    @hashcode.arrange
   end
 
-  def test_read
-    assert_equal @hashcode.vehicles.length, 2
-    assert_equal @hashcode.rides.length, 3
+  def test_example
+    binding.pry
   end
 end
